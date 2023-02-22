@@ -1,0 +1,17 @@
+button {
+    background-color: #B4E4FF;
+    border-radius: 16px;
+    color: #03001C;
+    flex-basis: 20%;
+    font-size: 22px;
+    height: 70px;
+}
+
+button:hover {
+    background-color: #7B8FA1;
+    color: #DEFCF9;
+}
+
+.zero {
+    flex-basis: 73%;
+}

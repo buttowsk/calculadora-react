@@ -2,6 +2,8 @@ import { Container, Content, Linha } from './styles';
 import Input from './components/Input'
 import Button from './components/Button';
 import { useState } from 'react';
+import Clear from './components/Clear';
+import Zero from './components/Zero'
 
 
 function App() {
@@ -102,7 +104,7 @@ function App() {
       <Content>
         <Input value={currentNumber}/>
         <Linha>
-          <Button label={'C'} onClick={handleOnClear} />
+          <Clear onClick={handleOnClear} className='clear'/>
           <Button label={'+'} onClick={handleSumNumbers}/>
         </Linha>
         <Linha>
@@ -124,7 +126,7 @@ function App() {
           <Button label={'÷'} onClick={handleDividedByNumbers}/>
         </Linha>
         <Linha>
-          <Button label={'0'} onClick={() => handleAddNumber('0')} />
+          <Zero onClick={() => handleAddNumber('0')} className='zero'/>
           <Button label={'='} onClick={handleEquals}/>
         </Linha>
       </Content>
