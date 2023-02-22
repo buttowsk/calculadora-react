@@ -83,15 +83,19 @@ function App() {
       switch(operation) {
           case '+':
             handleSumNumbers()
+            setFirstNumber('0')
             break;
           case '-':
             handleMinusNumbers()
+            setFirstNumber('0')
             break;
           case '÷':
             handleDividedByNumbers()
+            setFirstNumber('0')
             break;
           case '×':
             handleTimesNumbers()
+            setFirstNumber('0')
             break;
           default:
             break;
@@ -99,12 +103,23 @@ function App() {
   }
 }
 
+  const handleBackspace = () => {
+    const indexTotal = (currentNumber.length - 1)
+    if (indexTotal < 1) {
+      setCurrentNumber('0')
+    } else {
+      setCurrentNumber(currentNumber.slice(0, (indexTotal)))
+    }
+    
+  }
+
   return (
     <Container>
       <Content>
         <Input value={currentNumber}/>
         <Linha>
           <Clear onClick={handleOnClear} className='clear'/>
+          <Button label={'←'} onClick={handleBackspace} />
           <Button label={'+'} onClick={handleSumNumbers}/>
         </Linha>
         <Linha>
