@@ -8,8 +8,8 @@ export const InputContainer = styled.div`
     justify-content: flex-end;
 
     input {
-        background-color: #DFFFD8;
-        border: 0;
+        background-color: #fff;
+        border: 1px solid #03001C;
         border-radius: 14px;
         font-size: 30px;
         padding: 20px;

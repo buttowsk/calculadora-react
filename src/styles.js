@@ -14,7 +14,9 @@ export const Content = styled.div`
     border: 1px solid black;
     flex-basis: 450px;
     height: 580px;
-    padding: 10px 30px;
+    padding: 15px 35px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 `
 
 export const Linha = styled.div`
