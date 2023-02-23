@@ -120,7 +120,7 @@ function App() {
         <Linha>
           <Clear onClick={handleOnClear} className='clear'/>
           <Button label={'←'} onClick={handleBackspace} />
-          <Button label={'+'} onClick={handleSumNumbers}/>
+          <Button label={'+'} onClick={handleSumNumbers} />
         </Linha>
         <Linha>
           <Button label={7} onClick={() => handleAddNumber('7')}/>
