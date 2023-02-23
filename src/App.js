@@ -142,6 +142,7 @@ function App() {
         </Linha>
         <Linha>
           <Zero onClick={() => handleAddNumber('0')} className='zero'/>
+          <Button label={'.'} onClick={() => handleAddNumber('.')}/>
           <Button label={'='} onClick={handleEquals}/>
         </Linha>
       </Content>
