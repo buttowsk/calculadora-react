@@ -1,9 +1,9 @@
 import { ButtonContainer } from "./styles";
 
 
-export default function Button({label, onClick}) {
+export default function Button({label, onClick, disabled}) {
     return (
-        <ButtonContainer onClick={onClick}>
+        <ButtonContainer onClick={onClick} disabled={disabled}>
             {label}
         </ButtonContainer>
     );

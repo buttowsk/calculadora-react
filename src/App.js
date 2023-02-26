@@ -60,17 +60,33 @@ function App() {
       handleAddNumber('÷')
       setOperation('÷')
     } else {
-      const indexSymbol = currentNumber.indexOf('÷')
-      const secondNumber = currentNumber.slice((indexSymbol + 1))
-      const operacao = Number(firstNumber) / Number(secondNumber)
-      setCurrentNumber(String(operacao))
-      setOperation('')
-    }
+        const indexSymbol = currentNumber.indexOf('÷')
+        const secondNumber = currentNumber.slice((indexSymbol + 1))
+        console.log(secondNumber)
+        const operacao = Number(firstNumber) / Number(secondNumber)
+        setCurrentNumber(String(operacao))
+        setOperation('')
+      }
   }
 
-  const handleAddNumber = (number) => {
-      setCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
+  const disableButton = () => {
+    let disable;
+    const indexSymbol = currentNumber.indexOf('÷')
+    const secondNumber = currentNumber.slice((indexSymbol + 1))
+    if (operation === '÷' && secondNumber === '0' && currentNumber.length > 1) {
+        disable = true
+    } else if (secondNumber === '0.') {
+        disable = true
+    } else {
+        disable = false
     }
+    return disable
+  }
+  
+
+  const handleAddNumber = (number) => {
+    setCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
+  }
 
   const handleOnClear = () => {
     setCurrentNumber('0')
@@ -84,18 +100,22 @@ function App() {
           case '+':
             handleSumNumbers()
             setFirstNumber('0')
+            setOperation('')
             break;
           case '-':
             handleMinusNumbers()
             setFirstNumber('0')
+            setOperation('')
             break;
           case '÷':
             handleDividedByNumbers()
             setFirstNumber('0')
+            setOperation('')
             break;
           case '×':
             handleTimesNumbers()
             setFirstNumber('0')
+            setOperation('')
             break;
           default:
             break;
@@ -141,9 +161,9 @@ function App() {
           <Button label={'÷'} onClick={handleDividedByNumbers}/>
         </Linha>
         <Linha>
-          <Zero onClick={() => handleAddNumber('0')} className='zero'/>
+          <Zero onClick={() => handleAddNumber('0')} className='zero' />
           <Button label={'.'} onClick={() => handleAddNumber('.')}/>
-          <Button label={'='} onClick={handleEquals}/>
+          <Button label={'='} onClick={handleEquals} disabled={disableButton()}/>
         </Linha>
       </Content>
     </Container>
