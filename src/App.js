@@ -32,11 +32,11 @@ function App() {
       handleAddNumber('-')
       setOperation('-')
     } else {
-        const indexSymbol = currentNumber.indexOf('-')
-        const secondNumber = currentNumber.slice((indexSymbol + 1))
-        const operacao = Number(firstNumber) - Number(secondNumber)
-        setCurrentNumber(String(operacao))
-        setOperation('')
+      const indexSymbol = currentNumber.indexOf('-')
+      const secondNumber = currentNumber.slice((indexSymbol + 1))
+      const operacao = Number(firstNumber) - Number(secondNumber)
+      setCurrentNumber(String(operacao))
+      setOperation('')
     }
   }
 
@@ -60,13 +60,13 @@ function App() {
       handleAddNumber('÷')
       setOperation('÷')
     } else {
-        const indexSymbol = currentNumber.indexOf('÷')
-        const secondNumber = currentNumber.slice((indexSymbol + 1))
-        console.log(secondNumber)
-        const operacao = Number(firstNumber) / Number(secondNumber)
-        setCurrentNumber(String(operacao))
-        setOperation('')
-      }
+      const indexSymbol = currentNumber.indexOf('÷')
+      const secondNumber = currentNumber.slice((indexSymbol + 1))
+      console.log(secondNumber)
+      const operacao = Number(firstNumber) / Number(secondNumber)
+      setCurrentNumber(String(operacao))
+      setOperation('')
+    }
   }
 
   const disableButton = () => {
@@ -74,15 +74,15 @@ function App() {
     const indexSymbol = currentNumber.indexOf('÷')
     const secondNumber = currentNumber.slice((indexSymbol + 1))
     if (operation === '÷' && secondNumber === '0' && currentNumber.length > 1) {
-        disable = true
+      disable = true
     } else if (secondNumber === '0.') {
-        disable = true
+      disable = true
     } else {
-        disable = false
+      disable = false
     }
     return disable
   }
-  
+
 
   const handleAddNumber = (number) => {
     setCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
@@ -97,31 +97,31 @@ function App() {
   const handleEquals = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
       switch(operation) {
-          case '+':
-            handleSumNumbers()
-            setFirstNumber('0')
-            setOperation('')
-            break;
-          case '-':
-            handleMinusNumbers()
-            setFirstNumber('0')
-            setOperation('')
-            break;
-          case '÷':
-            handleDividedByNumbers()
-            setFirstNumber('0')
-            setOperation('')
-            break;
-          case '×':
-            handleTimesNumbers()
-            setFirstNumber('0')
-            setOperation('')
-            break;
-          default:
-            break;
+        case '+':
+          handleSumNumbers()
+          setFirstNumber('0')
+          setOperation('')
+          break;
+        case '-':
+          handleMinusNumbers()
+          setFirstNumber('0')
+          setOperation('')
+          break;
+        case '÷':
+          handleDividedByNumbers()
+          setFirstNumber('0')
+          setOperation('')
+          break;
+        case '×':
+          handleTimesNumbers()
+          setFirstNumber('0')
+          setOperation('')
+          break;
+        default:
+          break;
       }
+    }
   }
-}
 
   const handleBackspace = () => {
     const indexTotal = (currentNumber.length - 1)
@@ -130,43 +130,43 @@ function App() {
     } else {
       setCurrentNumber(currentNumber.slice(0, (indexTotal)))
     }
-    
+
   }
 
   return (
-    <Container>
-      <Content>
-        <Input value={currentNumber}/>
-        <Linha>
-          <Clear onClick={handleOnClear} className='clear'/>
-          <Button label={'←'} onClick={handleBackspace} />
-          <Button label={'+'} onClick={handleSumNumbers} />
-        </Linha>
-        <Linha>
-          <Button label={7} onClick={() => handleAddNumber('7')}/>
-          <Button label={8} onClick={() => handleAddNumber('8')}/>
-          <Button label={9} onClick={() => handleAddNumber('9')}/>
-          <Button label={'-'} onClick={handleMinusNumbers}/>
-        </Linha>
-        <Linha>
-          <Button label={4} onClick={() => handleAddNumber('4')}/>
-          <Button label={5} onClick={() => handleAddNumber('5')}/>
-          <Button label={6} onClick={() => handleAddNumber('6')}/>
-          <Button label={'×'} onClick={handleTimesNumbers}/>
-        </Linha>
-        <Linha>
-          <Button label={1} onClick={() => handleAddNumber('1')}/>
-          <Button label={2} onClick={() => handleAddNumber('2')}/>
-          <Button label={3} onClick={() => handleAddNumber('3')}/>
-          <Button label={'÷'} onClick={handleDividedByNumbers}/>
-        </Linha>
-        <Linha>
-          <Zero onClick={() => handleAddNumber('0')} className='zero' />
-          <Button label={'.'} onClick={() => handleAddNumber('.')}/>
-          <Button label={'='} onClick={handleEquals} disabled={disableButton()}/>
-        </Linha>
-      </Content>
-    </Container>
+      <Container>
+        <Content>
+          <Input value={currentNumber}/>
+          <Linha>
+            <Clear onClick={handleOnClear} className='clear'/>
+            <Button label={'←'} onClick={handleBackspace} />
+            <Button label={'+'} onClick={handleSumNumbers} />
+          </Linha>
+          <Linha>
+            <Button label={7} onClick={() => handleAddNumber('7')}/>
+            <Button label={8} onClick={() => handleAddNumber('8')}/>
+            <Button label={9} onClick={() => handleAddNumber('9')}/>
+            <Button label={'-'} onClick={handleMinusNumbers}/>
+          </Linha>
+          <Linha>
+            <Button label={4} onClick={() => handleAddNumber('4')}/>
+            <Button label={5} onClick={() => handleAddNumber('5')}/>
+            <Button label={6} onClick={() => handleAddNumber('6')}/>
+            <Button label={'×'} onClick={handleTimesNumbers}/>
+          </Linha>
+          <Linha>
+            <Button label={1} onClick={() => handleAddNumber('1')}/>
+            <Button label={2} onClick={() => handleAddNumber('2')}/>
+            <Button label={3} onClick={() => handleAddNumber('3')}/>
+            <Button label={'÷'} onClick={handleDividedByNumbers}/>
+          </Linha>
+          <Linha>
+            <Zero onClick={() => handleAddNumber('0')} className='zero' />
+            <Button label={'.'} onClick={() => handleAddNumber('.')}/>
+            <Button label={'='} onClick={handleEquals} disabled={disableButton()}/>
+          </Linha>
+        </Content>
+      </Container>
   );
 }
 
