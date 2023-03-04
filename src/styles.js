@@ -15,7 +15,8 @@ export const Content = styled.div`
     height: 580px;
     padding: 15px 35px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
 
 `
 
